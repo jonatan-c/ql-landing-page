@@ -15,6 +15,7 @@ module.exports = {
       'react/react-in-jsx-scope': 'off',
       "react/prop-types": "off",
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }], 
+      "@typescript-eslint/no-empty-object-type": "off",
       "import-helpers/order-imports": [
         "warn",
         {

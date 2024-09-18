@@ -19,3 +19,6 @@ commitlint.config.js
 next-env.d.ts
 postcss.config.js
 prettier.config.js
+
+/ui/*
+tailwind.config.ts
