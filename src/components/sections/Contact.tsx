@@ -46,14 +46,14 @@ const Contact = ({
             </p>
             <div className="space-y-2">
               <p className="flex items-center">
-                <strong>Dirección:</strong> Calle Financiera 123, Ciudad
-                Económica
+                <strong className="mr-4">Dirección:</strong> Calle Financiera
+                123, Ciudad Económica
               </p>
               <p className="flex items-center">
-                <strong>Teléfono:</strong> +1 234 567 890
+                <strong className="mr-4">Teléfono:</strong> +1 234 567 890
               </p>
               <p className="flex items-center">
-                <strong>Email:</strong> info@finpro.com
+                <strong className="mr-4">Email:</strong> info@finpro.com
               </p>
             </div>
           </div>

@@ -18,10 +18,10 @@ const Footer = () => {
               <h4 className="mb-2 text-sm font-semibold">Legal</h4>
               <ul className="text-sm text-gray-400">
                 <li>
-                  <Link href="/terminos">Términos de servicio</Link>
+                  <Link href="#">Términos de servicio</Link>
                 </li>
                 <li>
-                  <Link href="/privacidad">Política de privacidad</Link>
+                  <Link href="#">Política de privacidad</Link>
                 </li>
               </ul>
             </div>
@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-6 text-center text-sm text-gray-400">
-          © 2023 FinPro. Todos los derechos reservados.
+          © 2024 FinPro. Todos los derechos reservados.
         </div>
       </div>
     </footer>

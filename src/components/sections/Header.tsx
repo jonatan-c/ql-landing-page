@@ -1,5 +1,4 @@
-import { Menu, X } from "lucide-react";
-import Image from "next/image";
+import { ChartCandlestick, Menu, X } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -11,15 +10,17 @@ interface Props {
 const Header = ({ isMenuOpen, setIsMenuOpen }: Props) => {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container m-auto flex h-14 items-center justify-between">
+      <div className="container m-auto flex h-14 items-center justify-between px-4">
         <div className="mr-4 hidden md:flex">
           <Link className="mr-6 flex items-center space-x-2" href="/">
-            <Image
+            {/* <Image
               src="/placeholder.svg"
               alt="FinPro Logo"
               width={32}
               height={32}
-            />
+            /> */}
+            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M4 7v14h16V7H4zM12 3v2m0 14v2m-4-9h8m-8 4h8"/></svg> */}
+            <ChartCandlestick className="h-6 w-6" />
             <span className="hidden font-bold sm:inline-block">FinPro</span>
           </Link>
         </div>
@@ -28,7 +29,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: Props) => {
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link
               className="text-foreground/60 transition-colors hover:text-foreground/80"
-              href="#inicio"
+              href="#"
             >
               Inicio
             </Link>

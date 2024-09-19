@@ -15,7 +15,12 @@ const Hero = () => {
               diseñadas para ti.
             </p>
           </div>
-          <div className="space-x-4">
+          <div
+            className="space-x-4"
+            style={{
+              marginTop: "120px",
+            }}
+          >
             <Link
               className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
               href="#contacto"
