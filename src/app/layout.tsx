@@ -26,8 +26,15 @@ export const metadata: Metadata = {
     title: "FinPro - Soluciones Financieras",
     description:
       "Descubre cómo FinPro puede ayudarte con préstamos personales, tarjetas de crédito y cuentas de ahorro.",
-    url: "https://finpro.example.com",
-    images: "/images/finpro-og-image.jpg",
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "FinPro - Soluciones Financieras",
+      },
+    ],
     type: "website",
   },
 };

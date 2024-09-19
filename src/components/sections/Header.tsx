@@ -13,13 +13,6 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: Props) => {
       <div className="container m-auto flex h-14 items-center justify-between px-4">
         <div className="mr-4 hidden md:flex">
           <Link className="mr-6 flex items-center space-x-2" href="/">
-            {/* <Image
-              src="/placeholder.svg"
-              alt="FinPro Logo"
-              width={32}
-              height={32}
-            /> */}
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M4 7v14h16V7H4zM12 3v2m0 14v2m-4-9h8m-8 4h8"/></svg> */}
             <ChartCandlestick className="h-6 w-6" />
             <span className="hidden font-bold sm:inline-block">FinPro</span>
           </Link>
