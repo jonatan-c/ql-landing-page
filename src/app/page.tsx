@@ -9,6 +9,8 @@ import Testimonials from "@/components/sections/Testimonials";
 import { useState } from "react";
 
 export default function LandingPage() {
+  const backendApi = process.env.NEXT_PUBLIC_BACKEND_API;
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -20,6 +22,8 @@ export default function LandingPage() {
     email: "",
     message: "",
   });
+
+  const [successMessage, setSuccessMessage] = useState("");
 
   const validateForm = () => {
     let isValid = true;
@@ -47,11 +51,38 @@ export default function LandingPage() {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log("Formulario enviado:", formData);
-      // Aquí iría la lógica para enviar el formulario
+    if (!validateForm()) {
+      return;
+    }
+    try {
+      const response = await fetch(`${backendApi}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Mensaje enviado:", result);
+        setSuccessMessage("Mensaje enviado con éxito");
+        setTimeout(() => {
+          setSuccessMessage("");
+          setFormData({ name: "", email: "", message: "" });
+        }, 3000);
+      } else {
+        console.error("Error al enviar el mensaje");
+        setSuccessMessage("Error al enviar el mensaje");
+        setTimeout(() => {
+          setSuccessMessage("");
+          setFormData({ name: "", email: "", message: "" });
+        }, 3000);
+      }
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
@@ -77,6 +108,7 @@ export default function LandingPage() {
           formErrors={formErrors}
           handleInputChange={handleInputChange}
           handleSubmit={handleSubmit}
+          successMessage={successMessage}
         />
       </main>
       <Footer />

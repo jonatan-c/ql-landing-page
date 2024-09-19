@@ -1,6 +1,30 @@
 import { CreditCard, Landmark, PiggyBank } from "lucide-react";
 import React from "react";
 
+const SERVICES = [
+  {
+    id: 1,
+    title: "Tarjetas de Crédito",
+    description:
+      "Tarjetas con beneficios exclusivos y tasas competitivas para tus compras diarias.",
+    icon: <CreditCard className="mb-4 h-12 w-12 text-blue-600" />,
+  },
+  {
+    id: 2,
+    title: "Préstamos Personales",
+    description:
+      "Financiamiento rápido y flexible para tus proyectos personales o consolidación de deudas.",
+    icon: <Landmark className="mb-4 h-12 w-12 text-green-600" />,
+  },
+  {
+    id: 3,
+    title: "Cuentas de Ahorro",
+    description:
+      "Haz crecer tu dinero con nuestras cuentas de alto rendimiento y sin comisiones ocultas.",
+    icon: <PiggyBank className="mb-4 h-12 w-12 text-purple-600" />,
+  },
+];
+
 const Services = () => {
   return (
     <section
@@ -12,27 +36,11 @@ const Services = () => {
           Nuestros Servicios
         </h2>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Tarjetas de Crédito",
-              description:
-                "Tarjetas con beneficios exclusivos y tasas competitivas para tus compras diarias.",
-              icon: <CreditCard className="mb-4 h-12 w-12 text-blue-600" />,
-            },
-            {
-              title: "Préstamos Personales",
-              description:
-                "Financiamiento rápido y flexible para tus proyectos personales o consolidación de deudas.",
-              icon: <Landmark className="mb-4 h-12 w-12 text-green-600" />,
-            },
-            {
-              title: "Cuentas de Ahorro",
-              description:
-                "Haz crecer tu dinero con nuestras cuentas de alto rendimiento y sin comisiones ocultas.",
-              icon: <PiggyBank className="mb-4 h-12 w-12 text-purple-600" />,
-            },
-          ].map((service, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
+          {SERVICES?.map((service) => (
+            <div
+              key={service.id}
+              className="flex flex-col items-center text-center"
+            >
               {/* <div className="mb-4 rounded-full bg-primary p-3 text-primary-foreground"> */}
               {service.icon}
               {/* </div> */}

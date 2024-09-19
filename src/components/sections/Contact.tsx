@@ -19,6 +19,7 @@ interface Props {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  successMessage: string;
 }
 
 const Contact = ({
@@ -26,6 +27,7 @@ const Contact = ({
   formErrors,
   handleInputChange,
   handleSubmit,
+  successMessage,
 }: Props) => {
   return (
     <section
@@ -119,6 +121,9 @@ const Contact = ({
             <Button type="submit" className="w-full">
               Enviar mensaje
             </Button>
+            {successMessage && (
+              <p className="text-green-500">{successMessage}</p>
+            )}
           </form>
         </div>
       </div>
