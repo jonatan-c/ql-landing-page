@@ -10,13 +10,20 @@ interface Props {
 
 export default function Page() {
   const [data, setData] = useState<Props[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getAllContacts = async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_API}/contacts`,
-    );
-    const data = await response.json();
-    setData(data);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_API}/contacts`,
+      );
+      const data = await response.json();
+      setData(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -36,13 +43,31 @@ export default function Page() {
             </tr>
           </thead>
           <tbody>
-            {data?.map((contact) => (
-              <tr key={contact.id} className="hover:bg-gray-50">
-                <td className="border-b px-4 py-3">{contact.name}</td>
-                <td className="border-b px-4 py-3">{contact.email}</td>
-                <td className="border-b px-4 py-3">{contact.message}</td>
+            {isLoading && (
+              <tr>
+                <td colSpan={3} className="py-4 text-center">
+                  Cargando data...
+                </td>
               </tr>
-            ))}
+            )}
+
+            {!isLoading && data && data.length === 0 && (
+              <tr>
+                <td colSpan={3} className="py-4 text-center">
+                  No hay datos
+                </td>
+              </tr>
+            )}
+
+            {!isLoading &&
+              data &&
+              data.map((contact) => (
+                <tr key={contact.id}>
+                  <td className="border-b px-4 py-3">{contact.name}</td>
+                  <td className="border-b px-4 py-3">{contact.email}</td>
+                  <td className="border-b px-4 py-3">{contact.message}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
