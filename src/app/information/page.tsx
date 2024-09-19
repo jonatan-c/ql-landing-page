@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-const backendApi = process.env.NEXT_PUBLIC_BACKEND_API;
-
 interface Props {
   id: number;
   name: string;
@@ -14,7 +12,9 @@ export default function Page() {
   const [data, setData] = useState<Props[] | null>(null);
 
   const getAllContacts = async () => {
-    const response = await fetch(`${backendApi}/contacts`);
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_API}/contacts`,
+    );
     const data = await response.json();
     setData(data);
   };

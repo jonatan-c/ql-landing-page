@@ -9,8 +9,6 @@ import Testimonials from "@/components/sections/Testimonials";
 import { useState } from "react";
 
 export default function LandingPage() {
-  const backendApi = process.env.NEXT_PUBLIC_BACKEND_API;
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -57,13 +55,16 @@ export default function LandingPage() {
       return;
     }
     try {
-      const response = await fetch(`${backendApi}/contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_API}/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       if (response.ok) {
         const result = await response.json();
