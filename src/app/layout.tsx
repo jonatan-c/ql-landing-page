@@ -14,7 +14,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "FinPro - Soluciones Financieras",
+  title: {
+    default: "FinPro - Soluciones Financieras",
+    template: "%s - FinPro",
+  },
   description:
     "FinPro ofrece préstamos personales, tarjetas de crédito y cuentas de ahorro. Regístrate para obtener más información.",
   keywords:
